@@ -5,6 +5,7 @@ const developEnviroment = require('../../config');
 class MongoJS {
     constructor() {
         this.connection = null;
+        this.model = null;
         this._connect();
     }
 
@@ -15,7 +16,26 @@ class MongoJS {
         });
 
         this.connection = mongoose.connection;
+        this.model = mongoose.model('Dev', devSchema);
     }
+
+    devSchema = mongoose.Schema({
+        name: {
+            type: String,
+            required: true
+        },
+        user: {
+            type: String,
+            required: true
+        },
+        bio: String,
+        avatar: {
+            type: String,
+            required: true
+        },
+    }, {
+        timestamps: true,
+    });
 
     async isConnected() {
         const state = this.connection.readyState;
@@ -27,6 +47,8 @@ class MongoJS {
 
         return this.connection.readyState;
     }
+
+    getModel = () => this.model;
 }
 
 module.exports = MongoJS;
