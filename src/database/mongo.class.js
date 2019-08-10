@@ -16,26 +16,30 @@ class MongoJS {
         });
 
         this.connection = mongoose.connection;
-        this.model = mongoose.model('Dev', devSchema);
+        this.devSchema();
     }
 
-    devSchema = mongoose.Schema({
-        name: {
-            type: String,
-            required: true
-        },
-        user: {
-            type: String,
-            required: true
-        },
-        bio: String,
-        avatar: {
-            type: String,
-            required: true
-        },
-    }, {
-        timestamps: true,
-    });
+    devSchema() {
+        const developerSchema = new mongoose.Schema({
+            name: {
+                type: String,
+                required: true
+            },
+            username: {
+                type: String,
+                required: true
+            },
+            bio: String,
+            avatar: {
+                type: String,
+                required: true
+            },
+        }, {
+            timestamps: true,
+        });
+
+        this.model = mongoose.model('Dev', developerSchema);
+    }
 
     async isConnected() {
         const state = this.connection.readyState;
@@ -48,7 +52,18 @@ class MongoJS {
         return this.connection.readyState;
     }
 
-    getModel = () => this.model;
+    async create(item) {
+        return await this.model.create(item);
+    }
+
+    async read(id) {
+        return await this.model.find(id);
+    }
+
+    async findOne(name) {
+        return await this.model.findOne(name);
+    }
+
 }
 
 module.exports = MongoJS;

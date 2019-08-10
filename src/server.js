@@ -4,7 +4,9 @@ const mongo = require('./database/mongo.class');
 const routes = require('./routes/routes');
 
 const server = express();
-const database = new mongo();
+
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 
 server.use(routes);
 
