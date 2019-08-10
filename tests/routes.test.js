@@ -10,9 +10,9 @@ const should = chai.should();
 
 let app = {};
 
-describe('Testing the Server', function() {
+describe('Testing the routes', function() {
 
-    it('Testing the "/devs" get route', () => {
+    it('Testing the "/" get route', () => {
         chai.request(server).get('/').end((error, res) => {
             res.should.have.status(200);
         });

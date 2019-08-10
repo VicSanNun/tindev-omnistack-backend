@@ -1,14 +1,13 @@
 const express = require('express');
-const mongoose = require('mongoose');
 
-const routes = require('./routes');
+const mongo = require('./database/mongo.class');
+const routes = require('./routes/routes');
 
 const server = express();
-
-//mongoose.connect();
+const database = new mongo();
 
 server.use(routes);
 
-server.listen(3333);
+server.listen(5000);
 
 module.exports = server;
