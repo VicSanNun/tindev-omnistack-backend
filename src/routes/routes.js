@@ -1,6 +1,9 @@
 const express = require('express');
 
+const DevController = require('../controllers/dev.controller');
+
 const routes = express.Router();
+const devController = new DevController();
 
 routes.get('/', (req, res) => {
     res.json({
@@ -10,12 +13,8 @@ routes.get('/', (req, res) => {
     });
 });
 
-routes.post('/devs', (req, res) => {
-    res.json({
-        method: 'post',
-        endpoint: '/devs',
-        ok: true
-    });
+routes.post('/devs', function(req, res) {
+    devController.create(req, res);
 });
 
 // routes.put('/devs/:id', (req, res) => {

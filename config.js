@@ -1,6 +1,6 @@
 params = {
-    password: 'tindev',
-    user: 'tindev',
+    password: 'admin',
+    user: 'admin',
     database: 'admin',
     host: 'localhost',
     port: 27017,
