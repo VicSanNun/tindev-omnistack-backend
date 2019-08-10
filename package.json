@@ -1,34 +1,36 @@
 {
-  "name": "tindev-omnistack-backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "dependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.6.9",
-    "nodemon": "^1.19.1"
-  },
-  "devDependencies": {
-    "assert": "^2.0.0",
-    "mocha": "^6.2.0"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/VicSanNun/tindev-omnistack-backend.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/VicSanNun/tindev-omnistack-backend/issues"
-  },
-  "homepage": "https://github.com/VicSanNun/tindev-omnistack-backend#readme"
+    "name": "tindev-omnistack-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "dependencies": {
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.6.9",
+        "nodemon": "^1.19.1"
+    },
+    "devDependencies": {
+        "assert": "^2.0.0",
+        "mocha": "^6.2.0"
+    },
+    "scripts": {
+        "start": "nodemon ./src/server.js",
+        "pretest": "jshint *",
+        "test": "mocha ./tests/*.test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VicSanNun/tindev-omnistack-backend.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/VicSanNun/tindev-omnistack-backend/issues"
+    },
+    "homepage": "https://github.com/VicSanNun/tindev-omnistack-backend#readme"
 }
