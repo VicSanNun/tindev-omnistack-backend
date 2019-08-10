@@ -3,7 +3,6 @@ const express = require('express');
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
-    console.log('a');
     res.json({
         method: 'get',
         endpoint: '/',
@@ -12,7 +11,6 @@ routes.get('/', (req, res) => {
 });
 
 routes.post('/devs', (req, res) => {
-    console.log('b');
     res.json({
         method: 'post',
         endpoint: '/devs',
