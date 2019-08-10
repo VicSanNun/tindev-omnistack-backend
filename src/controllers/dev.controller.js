@@ -25,8 +25,24 @@ class DevController {
         return res.json(this.result_create);
     }
 
-    async findAll(req, res) {
+    async findById(id) {
+        return await db.read(id);
+    }
 
+    async listAll(req, res) {
+        const { user } = req.headers;
+
+        const loggedUser = await db.read(user);
+
+        const result = await db.findAll({
+            $and: [
+                { _id: { $ne: user } },
+                { _id: { $nin: loggedUser.likes } },
+                { _id: { $nin: loggedUser.dislikes } },
+            ]
+        });
+
+        return res.json(result);
     }
 }
 

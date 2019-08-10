@@ -34,6 +34,14 @@ class MongoJS {
                 type: String,
                 required: true
             },
+            likes: [{
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Dev'
+            }],
+            dislikes: [{
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Dev'
+            }],
         }, {
             timestamps: true,
         });
@@ -57,7 +65,11 @@ class MongoJS {
     }
 
     async read(id) {
-        return await this.model.find(id);
+        return await this.model.findById(id);
+    }
+
+    async findAll(param) {
+        return await this.model.find(param);
     }
 
     async findOne(name) {
